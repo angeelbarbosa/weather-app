@@ -6,6 +6,7 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null)
 
   const handleOnChange = (searchData) => {
+    console.log(searchData)
     setSearch(searchData)
     onSearchChange(searchData)
   }
