@@ -9,13 +9,20 @@ function App() {
   const [loading, setLoading] = useState(null)
   const [currentWeather, setCurrentWeather] = useState(null)
   const [forecast, setForecast] = useState(null)
+  const Loading = () => {
+    return (
+      <div className="loading">
+        <div className="spinner"></div>
+      </div>
+    )
+  }
   useEffect(() => {
+    setLoading(true)
     navigator.geolocation.getCurrentPosition(function (position) {
       const latitudeGeoLoc = position.coords.latitude
       const longitudeGeoLoc = position.coords.longitude
       handleOnSearchChange({ value: `${latitudeGeoLoc} ${longitudeGeoLoc}` })
     })
-    console.log("renderizado")
   }, [])
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ")
@@ -36,6 +43,7 @@ function App() {
 
         setCurrentWeather({ city: weatherResponse.name, ...weatherResponse })
         setForecast({ city: searchData.forecastResponse, ...forecastResponse })
+        setLoading(false)
       })
       .catch((err) => console.log(err))
   }
@@ -47,9 +55,7 @@ function App() {
         {currentWeather && <CurrentWeather data={currentWeather} />}
         {forecast && <Forecast data={forecast} />}
       </div>
-      <div className="loading">
-        <span>loading</span>
-      </div>
+      {loading && <Loading />}
     </>
   )
 }
