@@ -4,6 +4,7 @@ import Forecast from "./components/forecast/forecast"
 import CurrentWeather from "./components/current-weather/current-weather"
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api"
 import { useState, useEffect, Fragment } from "react"
+import { BsFillMoonStarsFill } from "react-icons/bs"
 
 function App() {
   const [loading, setLoading] = useState(null)
@@ -51,7 +52,14 @@ function App() {
   return (
     <>
       <div className="container">
-        <Search onSearchChange={handleOnSearchChange} />
+        <nav className="nav-bar">
+          <Search onSearchChange={handleOnSearchChange} />
+          <ul className="right-side">
+            <li className="moon">
+              <BsFillMoonStarsFill />
+            </li>
+          </ul>
+        </nav>
         {currentWeather && <CurrentWeather data={currentWeather} />}
         {forecast && <Forecast data={forecast} />}
       </div>
