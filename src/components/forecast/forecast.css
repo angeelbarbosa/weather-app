@@ -1,6 +1,8 @@
 .title {
   font-size: 23px;
   font-weight: 700;
+  color: white;
+  margin-left: 30px;
 }
 
 .daily-item {
@@ -13,7 +15,13 @@
   cursor: pointer;
   font-size: 14px;
   padding: 5px 20px;
+  border: 2px solid rgba(87, 39, 149, 0.098);
+  transition: transform .3s ease;
 }
+.daily-item:hover{
+  transform: scale(.9);
+}
+
 
 .icon-small {
   width: 35px;
@@ -62,5 +70,5 @@
 
 }
 .daily-details-grid-item label:last-child {
-  color: #8e8888;
+  color: #a39f9f;
 }
