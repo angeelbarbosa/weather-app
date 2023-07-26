@@ -55,9 +55,7 @@ function App() {
         <nav className="nav-bar">
           <Search onSearchChange={handleOnSearchChange} />
           <ul className="right-side">
-            <li className="moon">
-              <BsFillMoonStarsFill />
-            </li>
+            <li className="moon">{/* <BsFillMoonStarsFill /> */}</li>
           </ul>
         </nav>
         {currentWeather && <CurrentWeather data={currentWeather} />}
