@@ -1,5 +1,5 @@
 .weather {
-  width: 350px;
+  width: 300px;
   border-radius: 6px;
   box-shadow: 0px 0px 15px 15px rgba(15, 2, 37, 0.322);
   color: #fff;
@@ -10,7 +10,7 @@
 }
 
 .weather:hover{
-  transform: scale(1.2);
+  transform: scale(.9);
 }
 
 .top,
