@@ -77,6 +77,7 @@ function App() {
           <ul className="right-side">
             <li className="moon">
               <BsFillMoonStarsFill
+                className={`moon ${!darkMode ? "moonDark" : ""}`}
                 onClick={() => {
                   setDarkMode((previousValue) => !previousValue)
                 }}

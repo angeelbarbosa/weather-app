@@ -31,17 +31,27 @@ const Forecast = ({ data, darkMode }) => {
           <AccordionItem key={idx}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                <div className="daily-item">
+                <div
+                  className={`daily-item ${!darkMode ? "darkForecast" : ""}`}
+                >
                   <img
                     className="icon-small"
                     src={`icons/${item.weather[0].icon}.png`}
                     alt="weather"
                   />
-                  <label className="day">{forecastDays[idx]}</label>
-                  <label className="description">
+                  <label className={`day ${!darkMode ? "dayDark" : ""}`}>
+                    {forecastDays[idx]}
+                  </label>
+                  <label
+                    className={`description ${
+                      !darkMode ? "descriptionDark" : ""
+                    }`}
+                  >
                     {item.weather[0].description}
                   </label>
-                  <label className="min-max">
+                  <label
+                    className={`min-max ${!darkMode ? "min-maxDark" : ""}`}
+                  >
                     {Math.round(item.main.temp_min)}° /
                     {Math.round(item.main.temp_max)}°
                   </label>

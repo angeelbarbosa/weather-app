@@ -8,7 +8,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
+  margin-left: 15px;
+
+
+}
+
+.moon{
+  fill: white;
+  cursor: pointer;
+  transition: transform .3s ease;
+  margin-right: 15px;
+  font-size: 17px;
+
+}
+
+.moon:hover{
+  transform: scale(.9);
+}
+
+.moonDark{
+
+  fill: rgba(115, 114, 121, 0.891);
 }
 
 .right-side{

@@ -38,13 +38,14 @@ const Search = ({ onSearchChange, darkMode }) => {
     control: (provided) => ({
       ...provided,
       borderRadius: "5px",
-
-      backgroundColor: darkMode ? "white" : "red",
+      backgroundColor: darkMode ? "#e0dbe039" : "white",
+      border: "1px solid #00010857",
     }),
+
     option: (provided) => ({
       ...provided,
-      backgroundColor: "#3699FF",
-      color: darkMode ? "white" : "black",
+      backgroundColor: darkMode ? "#242847eb" : "#ffffffeb",
+      color: darkMode ? "white" : "rgb(86, 65, 81)",
     }),
   }
   return (

@@ -10,7 +10,9 @@
 }
 
 .darkWeather{
-  background-color: red;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(174, 161, 185) 100%);
+  color: rgb(86, 65, 81);
 }
 
 .weather:hover{

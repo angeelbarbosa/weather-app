@@ -21,8 +21,12 @@
 .daily-item:hover{
   transform: scale(.9);
 }
+.darkForecast{
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(245, 238, 246) 0%, rgb(174, 161, 185) 100%);
+  color: rgb(86, 65, 81);
 
-
+}
 .icon-small {
   width: 35px;
 }
@@ -34,6 +38,10 @@
   margin-left: 15px;
 }
 
+.dayDark{
+  color: rgb(86, 65, 81);
+  font-weight: 900;
+}
 .description {
   flex: 1 1;
   margin-right: 15px;
@@ -41,8 +49,17 @@
   color: whitesmoke;
 }
 
+.descriptionDark{
+  color: rgb(46, 32, 43);
+
+}
+
 .min-max {
   color: #b1acac;
+}
+
+.min-maxDark{
+  color: rgb(86, 65, 81);
 }
 
 .daily-details-grid {
