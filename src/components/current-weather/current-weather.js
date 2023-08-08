@@ -1,8 +1,8 @@
 import "./current-weather.css"
 
-const CurrentWeather = ({ data }) => {
+const CurrentWeather = ({ data, darkMode }) => {
   return (
-    <div className="weather">
+    <div className={`weather ${darkMode ? "darkWeather" : ""}`}>
       <div className="top">
         <div>
           <p className="city">{data.city}</p>

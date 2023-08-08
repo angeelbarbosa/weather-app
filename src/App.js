@@ -9,6 +9,7 @@ import { BsFillMoonStarsFill } from "react-icons/bs"
 function App() {
   const [loading, setLoading] = useState(null)
   const [currentWeather, setCurrentWeather] = useState(null)
+  const [darkMode, setDarkMode] = useState(false)
   const [forecast, setForecast] = useState(null)
   const Loading = () => {
     return (
@@ -18,6 +19,25 @@ function App() {
     )
   }
   useEffect(() => {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        if (e.matches) {
+          setDarkMode(true)
+        } else {
+          setDarkMode(false)
+        }
+      })
+
+    const initialTheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches
+
+    if (initialTheme) {
+      setDarkMode(true)
+    } else {
+      setDarkMode(false)
+    }
     setLoading(true)
     navigator.geolocation.getCurrentPosition(function (position) {
       const latitudeGeoLoc = position.coords.latitude
@@ -53,13 +73,21 @@ function App() {
     <>
       <div className="container">
         <nav className="nav-bar">
-          <Search onSearchChange={handleOnSearchChange} />
+          <Search onSearchChange={handleOnSearchChange} darkMode={darkMode} />
           <ul className="right-side">
-            <li className="moon">{/* <BsFillMoonStarsFill /> */}</li>
+            <li className="moon">
+              <BsFillMoonStarsFill
+                onClick={() => {
+                  setDarkMode((previousValue) => !previousValue)
+                }}
+              />
+            </li>
           </ul>
         </nav>
-        {currentWeather && <CurrentWeather data={currentWeather} />}
-        {forecast && <Forecast data={forecast} />}
+        {currentWeather && (
+          <CurrentWeather data={currentWeather} darkMode={darkMode} />
+        )}
+        {forecast && <Forecast data={forecast} darkMode={darkMode} />}
       </div>
       {loading && <Loading />}
     </>

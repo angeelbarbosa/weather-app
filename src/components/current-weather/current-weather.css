@@ -9,6 +9,10 @@
   transition: transform .5s ease;
 }
 
+.darkWeather{
+  background-color: red;
+}
+
 .weather:hover{
   transform: scale(.9);
 }

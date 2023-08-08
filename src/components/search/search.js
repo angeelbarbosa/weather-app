@@ -2,7 +2,7 @@ import { useState } from "react"
 import { AsyncPaginate } from "react-select-async-paginate"
 import { GEO_API_URL, geoApiOptions } from "../../api"
 
-const Search = ({ onSearchChange }) => {
+const Search = ({ onSearchChange, darkMode }) => {
   const [search, setSearch] = useState(null)
 
   const handleOnChange = (searchData) => {
@@ -34,6 +34,19 @@ const Search = ({ onSearchChange }) => {
       })
       .catch((err) => console.log(err))
   }
+  const styles = {
+    control: (provided) => ({
+      ...provided,
+      borderRadius: "5px",
+
+      backgroundColor: darkMode ? "white" : "red",
+    }),
+    option: (provided) => ({
+      ...provided,
+      backgroundColor: "#3699FF",
+      color: darkMode ? "white" : "black",
+    }),
+  }
   return (
     <AsyncPaginate
       placeholder="Search for city"
@@ -41,6 +54,7 @@ const Search = ({ onSearchChange }) => {
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}
+      styles={styles}
     />
   )
 }
